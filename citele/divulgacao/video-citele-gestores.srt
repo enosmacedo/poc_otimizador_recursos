@@ -1,0 +1,159 @@
+1
+00:00:00,600 --> 00:00:05,501
+Onde posicionar ambulâncias e viaturas para
+atender melhor a população?
+
+2
+00:00:05,501 --> 00:00:11,230
+O Citele é uma ferramenta de apoio à decisão
+que responde a essa pergunta com dados
+
+3
+00:00:11,230 --> 00:00:14,129
+oficiais, e mostra tudo no mapa da cidade.
+
+4
+00:00:15,730 --> 00:00:18,763
+Os recursos de emergência são limitados,
+
+5
+00:00:18,763 --> 00:00:23,237
+e a cidade não é uniforme: há bairros mais
+populosos, rios,
+
+6
+00:00:23,237 --> 00:00:25,890
+pontes e regiões de difícil acesso.
+
+7
+00:00:25,890 --> 00:00:30,819
+Decidir onde cada equipe fica faz diferença
+no tempo de resposta.
+
+8
+00:00:32,420 --> 00:00:35,864
+O uso é simples e funciona direto no
+navegador.
+
+9
+00:00:35,864 --> 00:00:38,575
+O gestor informa a cidade e o estado,
+
+10
+00:00:38,575 --> 00:00:44,145
+e o Citele carrega o limite oficial do
+município, a partir da malha do IBGE.
+
+11
+00:00:45,740 --> 00:00:50,842
+Em seguida, define quantos recursos há, se
+são ambulâncias ou viaturas,
+
+12
+00:00:50,842 --> 00:00:52,926
+e o critério de planejamento.
+
+13
+00:00:52,926 --> 00:00:54,579
+Na primeira estratégia,
+
+14
+00:00:54,579 --> 00:00:59,968
+os recursos são distribuídos para cobrir
+todo o território com o menor raio
+
+15
+00:00:59,968 --> 00:01:00,615
+possível.
+
+16
+00:01:02,210 --> 00:01:07,589
+Na segunda, o Citele usa a população de cada
+bairro, do Censo de 2022,
+
+17
+00:01:07,589 --> 00:01:13,045
+para que cada recurso atenda aproximadamente
+o mesmo número de pessoas.
+
+18
+00:01:13,045 --> 00:01:15,351
+Em Natal, com dez ambulâncias,
+
+19
+00:01:15,351 --> 00:01:20,730
+cada uma fica responsável por cerca de
+setenta e cinco mil habitantes.
+
+20
+00:01:22,330 --> 00:01:23,208
+Na terceira,
+
+21
+00:01:23,208 --> 00:01:28,768
+o sistema calcula rotas pelas ruas reais da
+cidade e escolhe as posições que
+
+22
+00:01:28,768 --> 00:01:32,426
+reduzem o tempo médio de chegada a qualquer
+ponto.
+
+23
+00:01:32,426 --> 00:01:38,206
+Em Natal, com oito viaturas, esse tempo fica
+em torno de quatro minutos e meio,
+
+24
+00:01:38,206 --> 00:01:40,108
+sem considerar o trânsito.
+
+25
+00:01:41,710 --> 00:01:44,254
+E se uma viatura sair de serviço?
+
+26
+00:01:44,254 --> 00:01:45,796
+Basta informar qual.
+
+27
+00:01:45,796 --> 00:01:52,272
+O Citele reposiciona os demais recursos e
+mostra a rota de cada um até o novo ponto.
+
+28
+00:01:52,272 --> 00:01:55,510
+No exemplo, priorizando o último a chegar,
+
+29
+00:01:55,510 --> 00:01:59,905
+a nova configuração fica pronta em cerca de
+oito minutos.
+
+30
+00:02:01,500 --> 00:02:04,862
+Com isso, o gestor compara cenários em
+minutos,
+
+31
+00:02:04,862 --> 00:02:10,728
+baseia as decisões em dados oficiais e
+consegue explicar cada escolha à equipe e à
+
+32
+00:02:10,728 --> 00:02:11,444
+população.
+
+33
+00:02:13,040 --> 00:02:18,659
+O Citele está em desenvolvimento como
+projeto de pesquisa e pode ser instalado em
+
+34
+00:02:18,659 --> 00:02:20,463
+servidor próprio do órgão.
+
+35
+00:02:20,463 --> 00:02:23,723
+Fale com a nossa equipe e conheça a
+ferramenta.

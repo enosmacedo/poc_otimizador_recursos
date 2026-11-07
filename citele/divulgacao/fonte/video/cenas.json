@@ -1,0 +1,110 @@
+[
+  {
+    "tipo": "capa",
+    "titulo": "Onde posicionar ambulâncias e viaturas para atender melhor a população?",
+    "texto": "Apoio à decisão para gestores públicos",
+    "narracao": "Onde posicionar ambulâncias e viaturas para atender melhor a população? O Citele é uma ferramenta de apoio à decisão que responde a essa pergunta com dados oficiais, e mostra tudo no mapa da cidade."
+  },
+  {
+    "tipo": "desafio",
+    "titulo": "O desafio",
+    "itens": [
+      [
+        "Recursos limitados",
+        "Poucas equipes para uma cidade inteira."
+      ],
+      [
+        "Cidade desigual",
+        "Bairros mais populosos, rios, pontes e áreas de difícil acesso."
+      ],
+      [
+        "Tempo de resposta",
+        "A posição de cada equipe define quanto tempo a ajuda leva para chegar."
+      ]
+    ],
+    "narracao": "Os recursos de emergência são limitados, e a cidade não é uniforme: há bairros mais populosos, rios, pontes e regiões de difícil acesso. Decidir onde cada equipe fica faz diferença no tempo de resposta."
+  },
+  {
+    "tipo": "tela",
+    "etapa": "1",
+    "titulo": "Escolha a cidade",
+    "texto": "Direto no navegador. O mapa carrega o limite oficial do município (IBGE).",
+    "imagem": "../capturas/01-cidade.png",
+    "narracao": "O uso é simples e funciona direto no navegador. O gestor informa a cidade e o estado, e o Citele carrega o limite oficial do município, a partir da malha do IBGE.",
+    "recorte": "630,110,760"
+  },
+  {
+    "tipo": "tela",
+    "etapa": "2",
+    "titulo": "Cobrir todo o território",
+    "texto": "Informe quantos recursos há e o tipo. Os círculos cobrem a cidade inteira com o menor raio possível.",
+    "imagem": "../capturas/02-area.png",
+    "narracao": "Em seguida, define quantos recursos há, se são ambulâncias ou viaturas, e o critério de planejamento. Na primeira estratégia, os recursos são distribuídos para cobrir todo o território com o menor raio possível.",
+    "recorte": "630,110,760"
+  },
+  {
+    "tipo": "tela",
+    "etapa": "3",
+    "titulo": "Atender o mesmo número de pessoas",
+    "texto": "Usa a população de cada bairro (Censo 2022). Bairros mais populosos recebem mais recursos.",
+    "imagem": "../capturas/03-densidade.png",
+    "destaque": [
+      "~75 mil",
+      "pessoas por ambulância em Natal, com 10 ambulâncias"
+    ],
+    "narracao": "Na segunda, o Citele usa a população de cada bairro, do Censo de 2022, para que cada recurso atenda aproximadamente o mesmo número de pessoas. Em Natal, com dez ambulâncias, cada uma fica responsável por cerca de setenta e cinco mil habitantes.",
+    "recorte": "630,110,760"
+  },
+  {
+    "tipo": "tela",
+    "etapa": "4",
+    "titulo": "Chegar mais rápido",
+    "texto": "Rotas pelas ruas reais, considerando pontes e barreiras naturais.",
+    "imagem": "../capturas/04-tempo.png",
+    "destaque": [
+      "4,6 min",
+      "de tempo médio até qualquer ponto de Natal com 8 viaturas (sem trânsito)"
+    ],
+    "narracao": "Na terceira, o sistema calcula rotas pelas ruas reais da cidade e escolhe as posições que reduzem o tempo médio de chegada a qualquer ponto. Em Natal, com oito viaturas, esse tempo fica em torno de quatro minutos e meio, sem considerar o trânsito.",
+    "recorte": "630,110,760"
+  },
+  {
+    "tipo": "tela",
+    "etapa": "5",
+    "titulo": "Simular imprevistos",
+    "texto": "Uma viatura saiu de serviço? O Citele reposiciona as demais e mostra a rota de cada uma.",
+    "imagem": "../capturas/05-realocacao.png",
+    "destaque": [
+      "8,1 min",
+      "para a nova configuração ficar pronta, priorizando o último a chegar"
+    ],
+    "narracao": "E se uma viatura sair de serviço? Basta informar qual. O Citele reposiciona os demais recursos e mostra a rota de cada um até o novo ponto. No exemplo, priorizando o último a chegar, a nova configuração fica pronta em cerca de oito minutos.",
+    "recorte": "640,150,720"
+  },
+  {
+    "tipo": "beneficios",
+    "titulo": "O que muda na gestão",
+    "itens": [
+      [
+        "Dados oficiais",
+        "IBGE, Censo 2022 e as ruas reais da cidade."
+      ],
+      [
+        "Cenários em minutos",
+        "Compare 6, 8 ou 10 equipes e veja o efeito no mapa."
+      ],
+      [
+        "Transparência",
+        "Cada proposta vem com números que podem ser explicados."
+      ]
+    ],
+    "narracao": "Com isso, o gestor compara cenários em minutos, baseia as decisões em dados oficiais e consegue explicar cada escolha à equipe e à população."
+  },
+  {
+    "tipo": "fim",
+    "titulo": "Conheça o Citele",
+    "texto": "Projeto de pesquisa em desenvolvimento · instalação em servidor próprio do órgão",
+    "contato": "[preencher com e-mail ou site da equipe]",
+    "narracao": "O Citele está em desenvolvimento como projeto de pesquisa e pode ser instalado em servidor próprio do órgão. Fale com a nossa equipe e conheça a ferramenta."
+  }
+]

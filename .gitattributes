@@ -1,0 +1,2 @@
+agregados_setores/Agregados_por_setores_basico_BR.csv filter=lfs diff=lfs merge=lfs -text
+setores_capitais_pontos.csv filter=lfs diff=lfs merge=lfs -text

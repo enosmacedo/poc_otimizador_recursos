@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Citele · Fluxo de uso</title>
+<style>
+  :root { --azul: #1A5FD0; --azul-escuro: #13254A; --vermelho: #D92D20; --texto: #1D2330;
+    --suave: #5B6475; --borda: #DCE3EC;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--texto); }
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 1920px; height: 1080px; background: #F3F6FA; display: flex; flex-direction: column;
+    padding: 56px 64px 44px; }
+  header { display: flex; align-items: center; justify-content: space-between; }
+  header img { height: 64px; }
+  h1 { margin: 34px 0 6px; font-size: 46px; line-height: 1.1; color: var(--azul-escuro); }
+  .sub { margin: 0; font-size: 22px; color: var(--suave); }
+  .etapas { flex: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 46px; margin-top: 44px;
+    align-items: stretch; }
+  .etapa { position: relative; background: #fff; border: 1px solid var(--borda); border-radius: 18px;
+    padding: 18px 18px 22px; box-shadow: 0 6px 18px rgb(19 37 74 / 0.08); }
+  .etapa + .etapa::before { content: ""; position: absolute; left: -38px; top: 182px; width: 30px; height: 30px;
+    background: var(--azul);
+    clip-path: polygon(0 30%, 55% 30%, 55% 0, 100% 50%, 55% 100%, 55% 70%, 0 70%); }
+  .tela { width: 100%; height: 340px; border-radius: 10px; border: 1px solid var(--borda);
+    background-repeat: no-repeat; }
+  .num { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--azul); color: #fff; font-weight: 800; font-size: 20px; margin: 18px 0 10px; }
+  h2 { margin: 0 0 8px; font-size: 27px; line-height: 1.2; color: var(--azul-escuro); }
+  p { margin: 0; font-size: 19px; line-height: 1.45; color: var(--suave); }
+  .resultado { margin-top: 12px; padding: 10px 12px; background: #E7F0FF; border-radius: 10px;
+    font-size: 17.5px; color: var(--azul-escuro); line-height: 1.35; }
+  .resultado b { color: var(--azul); }
+  footer { display: flex; justify-content: space-between; font-size: 16px; color: var(--suave); margin-top: 22px; }
+</style>
+</head>
+<body>
+  <header>
+    <img src="../logo/citele-logo.svg" alt="Citele">
+    <span style="font-size:18px;color:var(--suave)">Exemplo de uso · Natal (RN)</span>
+  </header>
+  <h1>Do mapa à decisão em cinco passos</h1>
+  <p class="sub">Como um gestor de saúde planeja a distribuição de ambulâncias e se prepara para imprevistos.</p>
+
+  <section class="etapas">
+    <div class="etapa">
+      <div class="tela" data-img="capturas/01-cidade.png" data-recorte="720,140,500"></div>
+      <span class="num">1</span>
+      <h2>Escolha a cidade</h2>
+      <p>Digite o município e o estado. O mapa enquadra a cidade com o limite oficial do IBGE.</p>
+    </div>
+    <div class="etapa">
+      <div class="tela" data-img="capturas/02-area.png" data-recorte="0,370,410"></div>
+      <span class="num">2</span>
+      <h2>Defina os recursos</h2>
+      <p>Informe quantas ambulâncias ou viaturas há e escolha o critério de planejamento.</p>
+    </div>
+    <div class="etapa">
+      <div class="tela" data-img="capturas/03-densidade.png" data-recorte="700,150,460"></div>
+      <span class="num">3</span>
+      <h2>Veja a proposta no mapa</h2>
+      <p>Cada recurso aparece numerado, com o círculo da área que atende.</p>
+    </div>
+    <div class="etapa">
+      <div class="tela" data-img="capturas/03-densidade.png" data-recorte="0,290,410"></div>
+      <span class="num">4</span>
+      <h2>Avalie os indicadores</h2>
+      <p>Compare população atendida, raio e tempos de chegada entre cenários.</p>
+      <div class="resultado">10 ambulâncias: <b>~75 mil pessoas</b> por ambulância, variação de <b>4,6%</b>.</div>
+    </div>
+    <div class="etapa">
+      <div class="tela" data-img="capturas/05-realocacao.png" data-recorte="760,180,480"></div>
+      <span class="num">5</span>
+      <h2>Simule um imprevisto</h2>
+      <p>Retire um recurso: os demais são reposicionados e o mapa mostra a rota de cada um.</p>
+      <div class="resultado">Último recurso chega em <b>8,1 min</b> à nova posição.</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Dados: IBGE (malha municipal e Censo 2022) e OpenStreetMap. Tempos estimados sem trânsito.</span>
+    <span>Citele · apoio à decisão para gestores públicos</span>
+  </footer>
+
+<script>
+  // Recorte "x,y,largura" em coordenadas da tela capturada (1600x900 px CSS)
+  const LARGURA = 1600, ALTURA = 900;
+  for (const el of document.querySelectorAll("[data-recorte]")) {
+    const [x, y, w] = el.dataset.recorte.split(",").map(Number);
+    const caixa = el.getBoundingClientRect();
+    const h = w * caixa.height / caixa.width;
+    el.style.backgroundImage = `url(${el.dataset.img})`;
+    el.style.backgroundSize = `${(LARGURA / w) * 100}% auto`;
+    el.style.backgroundPosition = `${(x / (LARGURA - w)) * 100}% ${(y / (ALTURA - h)) * 100}%`;
+  }
+</script>
+</body>
+</html>

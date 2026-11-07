@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citele · Citeledrone</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body>
+  <header class="topo">
+    <h1>Citele <span>Citeledrone 3D · simulação de enxames no ARGoS</span></h1>
+  </header>
+
+  <main class="layout">
+    <aside class="painel">
+      <section class="secao">
+        <h2><span class="num">1</span> Área</h2>
+        <form id="form-simular" novalidate>
+          <div class="dupla">
+            <div><label for="largura">Largura (m)</label>
+              <input id="largura" type="number" min="10" max="2000" step="10" value="300"></div>
+            <div><label for="comprimento">Comprimento (m)</label>
+              <input id="comprimento" type="number" min="10" max="2000" step="10" value="200"></div>
+          </div>
+        </form>
+      </section>
+
+      <section class="secao">
+        <h2><span class="num">2</span> Drones</h2>
+        <label for="drones">Quantidade de drones</label>
+        <input id="drones" form="form-simular" type="number" min="1" max="100" step="1" value="12">
+        <div class="dupla">
+          <div><label for="altitude">Altitude (m)</label>
+            <input id="altitude" form="form-simular" type="number" min="5" max="120" step="5" value="40"></div>
+          <div><label for="velocidade">Velocidade (m/s)</label>
+            <input id="velocidade" form="form-simular" type="number" min="1" max="25" step="1" value="8"></div>
+        </div>
+        <label for="estrategia">Estratégia</label>
+        <select id="estrategia" form="form-simular"></select>
+        <button type="submit" form="form-simular" class="botao destaque">Simular enxame</button>
+        <p class="mensagem" id="msg" role="status"></p>
+        <dl class="resultado" id="resultado" hidden></dl>
+      </section>
+
+      <section class="secao">
+        <h2><span class="num">3</span> Operações nos drones</h2>
+        <p class="ajuda" id="drones-atuais">Simule um enxame na seção 2 para operar nos drones.</p>
+        <form id="form-apagar" novalidate>
+          <fieldset id="operacoes" disabled>
+            <label for="drone-apagar">Número do drone a apagar</label>
+            <input id="drone-apagar" type="number" min="1" step="1" required>
+            <p class="ajuda">Os demais se reposicionam com a estratégia selecionada na seção 2.</p>
+            <button type="submit" class="botao perigo">Apagar e reposicionar</button>
+          </fieldset>
+        </form>
+        <p class="mensagem" id="msg-operacoes" role="status"></p>
+        <ol class="movimentos" id="movimentos" hidden></ol>
+      </section>
+    </aside>
+
+    <section class="cena-container" aria-label="Cena 3D">
+      <div id="cena"></div>
+      <div class="legenda">
+        <span><i class="cor-drone"></i>drone</span>
+        <span><i class="cor-cobertura"></i>área coberta</span>
+        <span><i class="cor-base"></i>base de decolagem</span>
+        <span class="nota" id="escala"></span>
+      </div>
+      <div class="controles" id="controles" hidden>
+        <button type="button" id="tocar" class="botao-icone" aria-label="Pausar">❚❚</button>
+        <input id="tempo" type="range" min="0" max="1" step="0.01" value="0" aria-label="Tempo da simulação">
+        <span id="relogio" class="relogio">0,0 s</span>
+        <select id="ritmo" aria-label="Velocidade de reprodução">
+          <option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option>
+        </select>
+      </div>
+      <p class="aviso" id="aviso">Defina a área e os drones e clique em <b>Simular enxame</b>.</p>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

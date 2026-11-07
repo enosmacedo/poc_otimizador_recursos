@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Citele · Folder</title>
+<style>
+  @page { size: A4 landscape; margin: 0; }
+  :root {
+    --azul: #1A5FD0; --azul-escuro: #13254A; --vermelho: #D92D20; --texto: #1D2330;
+    --suave: #5B6475; --fundo: #F3F6FA; --borda: #DCE3EC;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--texto);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #8a94a3; }
+  .pagina { width: 297mm; height: 210mm; display: grid; grid-template-columns: repeat(3, 99mm);
+    background: #fff; overflow: hidden; page-break-after: always; margin: 0 auto 10mm; }
+  @media print { html, body { background: #fff; } .pagina { margin: 0; } }
+  .painel { padding: 11mm 9mm 9mm; position: relative; display: flex; flex-direction: column; gap: 3.2mm;
+    border-right: 0.2mm dashed #e3e8ef; }
+  .painel:last-child { border-right: 0; }
+  h1, h2, h3, p { margin: 0; }
+  h2 { font-size: 15pt; line-height: 1.15; color: var(--azul-escuro); }
+  h3 { font-size: 10.5pt; color: var(--azul-escuro); }
+  p, li { font-size: 8.6pt; line-height: 1.45; }
+  .rotulo { font-size: 7pt; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--azul); }
+  ul { margin: 0; padding-left: 4.2mm; }
+  li + li { margin-top: 1.2mm; }
+  .tela { width: 100%; border-radius: 2.5mm; border: 0.3mm solid var(--borda);
+    background-size: cover; background-repeat: no-repeat; }
+  .numero { font-size: 19pt; font-weight: 800; color: var(--azul); line-height: 1; white-space: nowrap; }
+  .dado { display: flex; gap: 3mm; align-items: baseline; }
+  .dado p { color: var(--suave); }
+  .caixa { background: var(--fundo); border-radius: 2.5mm; padding: 3.5mm 4mm; }
+  .caixa p + p { margin-top: 1.5mm; }
+
+  /* Capa */
+  .capa { background: linear-gradient(160deg, #13254A 0%, #1A3F86 60%, #1A5FD0 100%); color: #fff;
+    border-right: 0; justify-content: space-between; }
+  .capa h1 { font-size: 21pt; line-height: 1.12; font-weight: 800; }
+  .capa .sub { font-size: 10pt; line-height: 1.45; color: #D6E2F7; }
+  .capa .tela { height: 52mm; border: 0.6mm solid rgb(255 255 255 / 0.5); box-shadow: 0 2mm 6mm rgb(0 0 0 / 0.35); }
+  .capa .rodape { font-size: 7.5pt; color: #AFC3E6; }
+  .selos { display: flex; gap: 2mm; flex-wrap: wrap; }
+  .selos span { font-size: 7.2pt; font-weight: 600; padding: 1mm 2.4mm; border-radius: 4mm;
+    background: rgb(255 255 255 / 0.14); border: 0.25mm solid rgb(255 255 255 / 0.3); }
+
+  /* Estrategias */
+  .estrategia { display: flex; flex-direction: column; gap: 2mm; }
+  .estrategia .tela { height: 33mm; }
+  .tag { display: inline-block; width: 5.5mm; height: 5.5mm; border-radius: 50%; background: var(--azul);
+    color: #fff; font-size: 8pt; font-weight: 700; text-align: center; line-height: 5.5mm; margin-right: 1.5mm; }
+
+  .passos { list-style: none; padding: 0; counter-reset: passo; }
+  .passos li { counter-increment: passo; position: relative; padding-left: 8mm; }
+  .passos li::before { content: counter(passo); position: absolute; left: 0; top: 0.2mm; width: 5.5mm; height: 5.5mm;
+    border-radius: 50%; background: var(--azul); color: #fff; font-size: 7.5pt; font-weight: 700;
+    text-align: center; line-height: 5.5mm; }
+  .contato { margin-top: auto; border-top: 0.3mm solid var(--borda); padding-top: 3mm; }
+  .contato img { height: 11mm; }
+  .comparacao { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+  .comparacao div { background: var(--fundo); border-radius: 2mm; padding: 2.5mm; }
+  .comparacao b { display: block; font-size: 13pt; color: var(--azul); }
+  .comparacao span { font-size: 7.4pt; color: var(--suave); line-height: 1.3; display: block; }
+  .comparacao .destaque { background: #E7F0FF; outline: 0.3mm solid #B9CEF5; }
+  .nota { font-size: 7pt !important; color: var(--suave); }
+  .cobertura { display: grid; grid-template-columns: 1fr; gap: 2.5mm; margin-top: auto; }
+  .cobertura div { display: flex; align-items: baseline; gap: 3mm; border-left: 1mm solid var(--azul);
+    padding-left: 3mm; }
+  .cobertura b { font-size: 17pt; color: var(--azul-escuro); white-space: nowrap; }
+  .cobertura span { font-size: 8pt; color: var(--suave); line-height: 1.3; }
+</style>
+</head>
+<body>
+
+<!-- ======================= FRENTE (externa) ======================= -->
+<section class="pagina" id="p1">
+  <!-- Aba interna (dobra) -->
+  <div class="painel">
+    <span class="rotulo">Para quem é</span>
+    <h2>Gestores que precisam decidir onde cada recurso faz mais diferença</h2>
+    <ul>
+      <li><b>Saúde</b>: bases do SAMU e ambulâncias.</li>
+      <li><b>Segurança pública</b>: viaturas e postos de policiamento.</li>
+      <li><b>Defesa civil</b>: equipes de pronta resposta.</li>
+      <li><b>Planejamento</b>: estudos de cobertura e expansão de serviços.</li>
+    </ul>
+    <span class="rotulo" style="margin-top:3mm">O que muda na decisão</span>
+    <div class="caixa">
+      <p><b>Dados oficiais, não intuição.</b> Limites do IBGE, população do Censo 2022 e as ruas reais da cidade.</p>
+      <p><b>Cenários em minutos.</b> Compare 6, 8 ou 10 viaturas e veja o efeito no mapa e nos indicadores.</p>
+      <p><b>Transparência.</b> Cada proposta vem com números que podem ser explicados à equipe e à população.</p>
+    </div>
+    <div class="cobertura">
+      <div><b>5.570</b><span>municípios com limites oficiais do IBGE</span></div>
+      <div><b>27</b><span>capitais com população por bairro, distrito ou setor (Censo 2022)</span></div>
+      <div><b>2.180</b><span>bairros com limite e população em 21 capitais</span></div>
+    </div>
+  </div>
+
+  <!-- Contracapa -->
+  <div class="painel">
+    <span class="rotulo">Como usar</span>
+    <h2>Quatro passos, direto no navegador</h2>
+    <ol class="passos">
+      <li>Escolha a <b>cidade</b> e o <b>estado</b>.</li>
+      <li>Informe <b>quantos recursos</b> e de que tipo: ambulâncias ou viaturas.</li>
+      <li>Escolha a <b>estratégia</b> e veja os recursos posicionados no mapa, com a área de cada um.</li>
+      <li>Simule a <b>saída de um recurso</b> e veja como os demais se reorganizam.</li>
+    </ol>
+    <span class="rotulo" style="margin-top:2mm">Dados utilizados</span>
+    <ul>
+      <li>IBGE: malha municipal 2022 e bairros do Censo 2022.</li>
+      <li>Censo Demográfico 2022: população por bairro.</li>
+      <li>OpenStreetMap: ruas e avenidas para calcular rotas.</li>
+    </ul>
+    <span class="rotulo" style="margin-top:2mm">Situação atual</span>
+    <p>Sistema web em desenvolvimento como projeto de pesquisa. Funciona para todos os municípios;
+      a estratégia por população atende as 27 capitais e a de tempo de deslocamento está em piloto em
+      Natal (RN). Pode ser instalado em servidor próprio do órgão.</p>
+    <div class="contato">
+      <img src="../logo/citele-logo.svg" alt="Citele">
+      <p class="nota">Contato: [preencher com e-mail ou site da equipe]</p>
+    </div>
+  </div>
+
+  <!-- Capa -->
+  <div class="painel capa">
+    <img src="../logo/citele-logo-negativo.svg" alt="Citele" style="height:15mm;align-self:flex-start">
+    <div style="display:flex;flex-direction:column;gap:4mm">
+      <h1>Onde posicionar ambulâncias e viaturas para atender melhor a população?</h1>
+      <p class="sub">O Citele calcula a melhor distribuição dos recursos de emergência no território,
+        com dados oficiais, e mostra tudo no mapa da cidade.</p>
+    </div>
+    <div class="tela" style="background-image:url(capturas/02-area.png);background-position:62% 45%;background-size:190%"></div>
+    <div class="selos"><span>Dados do IBGE</span><span>Censo 2022</span><span>Rotas reais</span><span>Simulação de cenários</span></div>
+    <p class="rodape">Ferramenta de apoio à decisão para gestores públicos</p>
+  </div>
+</section>
+
+<!-- ======================= VERSO (interna) ======================= -->
+<section class="pagina" id="p2">
+  <div class="painel">
+    <span class="rotulo">Três formas de planejar</span>
+    <h2>Escolha o critério que mais importa para o seu serviço</h2>
+    <div class="estrategia">
+      <h3><span class="tag">1</span>Cobrir todo o território</h3>
+      <div class="tela" style="background-image:url(capturas/02-area.png);background-position:64% 38%;background-size:175%"></div>
+      <p>Distribui os recursos para que a cidade inteira fique coberta, cada um responsável por uma
+        área do mesmo tamanho, com o menor raio possível. Ideal para garantir que nenhuma região
+        fique sem atendimento.</p>
+    </div>
+    <div class="caixa">
+      <p><b>Funciona em qualquer município</b> do Brasil, usando a malha oficial do IBGE.</p>
+    </div>
+    <span class="rotulo" style="margin-top:auto">Indicadores em cada cenário</span>
+    <div class="caixa">
+      <ul>
+        <li>Raio de atendimento e área coberta.</li>
+        <li>População atendida por recurso e variação entre eles.</li>
+        <li>Tempo médio, mediano e máximo de chegada.</li>
+        <li>Rota, distância e tempo de cada deslocamento.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="painel">
+    <div class="estrategia">
+      <h3><span class="tag">2</span>Atender a mesma quantidade de pessoas</h3>
+      <div class="tela" style="background-image:url(capturas/03-densidade.png);background-position:64% 38%;background-size:175%"></div>
+      <p>Usa a população de cada bairro (Censo 2022) para que cada recurso atenda aproximadamente o mesmo
+        número de habitantes. Bairros mais populosos recebem mais recursos.</p>
+      <div class="dado"><span class="numero">4,6%</span>
+        <p>de variação entre os recursos em Natal com 10 ambulâncias: cada uma atende cerca de 75 mil pessoas.</p></div>
+    </div>
+    <div class="estrategia">
+      <h3><span class="tag">3</span>Chegar mais rápido</h3>
+      <div class="tela" style="background-image:url(capturas/04-tempo.png);background-position:64% 38%;background-size:175%"></div>
+      <p>Calcula rotas pelas ruas reais e posiciona os recursos para reduzir o tempo médio de chegada a
+        qualquer ponto da cidade, levando em conta pontes e barreiras naturais.</p>
+      <div class="dado"><span class="numero">4,6 min</span>
+        <p>de tempo médio até qualquer ponto de Natal com 8 viaturas (sem trânsito).</p></div>
+    </div>
+  </div>
+
+  <div class="painel">
+    <span class="rotulo">Simulação de imprevistos</span>
+    <h2>Uma viatura saiu de serviço. E agora?</h2>
+    <div class="tela" style="height:58mm;background-image:url(capturas/05-realocacao.png);background-position:66% 42%;background-size:240%"></div>
+    <p>Basta informar o recurso que saiu. O Citele recalcula as posições dos demais e mostra, no mapa,
+      a <b>rota</b> que cada um deve fazer até o novo ponto, com distância e tempo.</p>
+    <p>O gestor escolhe o critério da reorganização:</p>
+    <div class="comparacao">
+      <div><b>17,8 min</b><span>Menor tempo total: um único recurso atravessa a cidade.</span></div>
+      <div class="destaque"><b>8,1 min</b><span>Menor tempo do último a chegar: vários se movem pouco e a cobertura volta antes.</span></div>
+    </div>
+    <p class="nota">Exemplo: Natal, 6 ambulâncias, retirada de uma delas. Tempos estimados sem trânsito.</p>
+  </div>
+</section>
+
+<script>
+  // Pre-visualizacao de uma pagina so: folder.html#p1 ou #p2
+  const alvo = location.hash.slice(1);
+  if (alvo) for (const p of document.querySelectorAll(".pagina")) if (p.id !== alvo) p.remove();
+</script>
+</body>
+</html>

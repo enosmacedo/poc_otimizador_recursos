@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Citele</title>
+  <!-- Pino de localizacao -->
+  <path d="M32 3C18.7 3 8 13.6 8 26.8 8 44.6 32 61 32 61s24-16.4 24-34.2C56 13.6 45.3 3 32 3z" fill="#1A5FD0"/>
+  <!-- Area de cobertura -->
+  <circle cx="32" cy="26.5" r="15" fill="#FFFFFF"/>
+  <circle cx="32" cy="26.5" r="10" fill="none" stroke="#1A5FD0" stroke-width="2" stroke-dasharray="3.2 2.6"/>
+  <!-- Recurso -->
+  <circle cx="32" cy="26.5" r="4.5" fill="#D92D20"/>
+</svg>

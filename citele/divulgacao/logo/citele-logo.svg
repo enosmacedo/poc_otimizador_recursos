@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <title>Citele</title>
+  <g transform="translate(4 8)">
+    <path d="M32 3C18.7 3 8 13.6 8 26.8 8 44.6 32 61 32 61s24-16.4 24-34.2C56 13.6 45.3 3 32 3z" fill="#1A5FD0"/>
+    <circle cx="32" cy="26.5" r="15" fill="#FFFFFF"/>
+    <circle cx="32" cy="26.5" r="10" fill="none" stroke="#1A5FD0" stroke-width="2" stroke-dasharray="3.2 2.6"/>
+    <circle cx="32" cy="26.5" r="4.5" fill="#D92D20"/>
+  </g>
+  <text x="76" y="50" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+        font-size="40" font-weight="700" letter-spacing="-0.5" fill="#1D2330">Citele</text>
+  <text x="78" y="68" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+        font-size="11.5" font-weight="600" letter-spacing="1.6" fill="#5B6475">ALOCAÇÃO DE RECURSOS</text>
+</svg>

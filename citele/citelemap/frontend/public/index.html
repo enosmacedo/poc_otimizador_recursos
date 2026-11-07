@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citele · Citelemap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Citele <span>Citelemap 2D</span></h1>
+  </header>
+
+  <main class="layout">
+    <aside class="painel">
+      <!-- Secao 1: localizacao -->
+      <section class="secao" id="secao1">
+        <h2><span class="num">1</span> Localização</h2>
+        <form id="form-local" novalidate>
+          <label for="cidade">Cidade</label>
+          <input id="cidade" name="cidade" type="text" placeholder="Ex.: Natal" autocomplete="off" required>
+
+          <label for="estado">Estado</label>
+          <select id="estado" name="estado" required>
+            <option value="">Selecione…</option>
+          </select>
+
+          <button type="submit" class="botao destaque">Ir para a cidade</button>
+        </form>
+        <p class="mensagem" id="msg-local" role="status"></p>
+      </section>
+
+      <!-- Secao 2: configuracao dos recursos -->
+      <section class="secao" id="secao2">
+        <h2><span class="num">2</span> Recursos</h2>
+        <form id="form-recursos" novalidate>
+          <label for="recursos">Número de recursos</label>
+          <input id="recursos" name="recursos" type="number" min="1" max="200" step="1" value="5" required>
+
+          <label for="tipo">Tipo de recurso</label>
+          <select id="tipo" name="tipo" required></select>
+
+          <label for="estrategia">Estratégia</label>
+          <select id="estrategia" name="estrategia" required></select>
+
+          <button type="submit" class="botao">Calcular alocação</button>
+        </form>
+        <p class="mensagem" id="msg-recursos" role="status"></p>
+        <dl class="resultado" id="resultado" hidden></dl>
+      </section>
+
+      <!-- Secao 4: operacoes sobre os recursos ja alocados -->
+      <section class="secao" id="secao4">
+        <h2><span class="num">4</span> Operações nos recursos</h2>
+        <p class="ajuda" id="recursos-atuais">Calcule uma alocação na seção 2 para operar nos recursos.</p>
+        <form id="form-apagar" novalidate>
+          <fieldset id="operacoes" disabled>
+            <label for="recurso-apagar">Número do recurso a apagar</label>
+            <input id="recurso-apagar" name="recurso" type="number" min="1" step="1" required>
+
+            <label for="criterio">Critério do deslocamento</label>
+            <select id="criterio" name="criterio"></select>
+
+            <button type="submit" class="botao perigo">Apagar e realocar</button>
+          </fieldset>
+        </form>
+        <p class="mensagem" id="msg-operacoes" role="status"></p>
+        <ol class="movimentos" id="movimentos" hidden></ol>
+      </section>
+    </aside>
+
+    <!-- Secao 3: mapa -->
+    <section class="mapa-container" id="secao3" aria-label="Mapa">
+      <div id="mapa"></div>
+      <p class="aviso-mapa" id="aviso-mapa" hidden></p>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

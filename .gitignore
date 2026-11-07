@@ -1,0 +1,29 @@
+# Ambientes e caches
+.venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Segredos (chave do Google Maps etc.): use citele/.env.example como modelo
+.env
+
+# Dados brutos do IBGE (grandes; baixe de novo pelos enderecos no README)
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.gpkg
+*.zip
+malha_municipal/
+malha_uf/
+malha_bairros/
+malha_setores/
+
+# Arquivos gerados pelo script do video (quadros 4K e clipes intermediarios)
+citele/divulgacao/fonte/video/build/
+citele/divulgacao/fonte/video/cenas.js
+
+# Configuracoes locais do editor
+.vscode/

@@ -1,0 +1,64 @@
+name: citele
+
+services:
+  # Modulo de calculos (Python + FastAPI)
+  citeleat:
+    build:
+      context: .
+      dockerfile: citeleat/Dockerfile
+    ports:
+      - "8000:8000" # documentacao da API em http://localhost:8000/docs
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/saude')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Citelemap: backend (Node.js)
+  citelemap-backend:
+    build:
+      context: .
+      dockerfile: citelemap/backend/Dockerfile
+    environment:
+      CITELEAT_URL: http://citeleat:8000
+      GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY:-}
+      GOOGLE_MAPS_MAP_ID: ${GOOGLE_MAPS_MAP_ID:-}
+      MAX_VERTICES: ${MAX_VERTICES:-1000}
+    depends_on:
+      citeleat:
+        condition: service_healthy
+
+  # Citelemap: frontend (JavaScript, servido pelo nginx)
+  citelemap-frontend:
+    build: ./citelemap/frontend
+    ports:
+      - "8080:80" # sistema em http://localhost:8080
+    depends_on:
+      - citelemap-backend
+
+  # Citeledrone: enxames de drones em 3D (ARGoS + Python + three.js)
+  citeledrone:
+    build: ./citeledrone
+    ports:
+      - "8090:8090" # http://localhost:8090
+    environment:
+      CITELEAT_URL: http://citeleat:8000
+    depends_on:
+      citeleat:
+        condition: service_healthy
+
+  # Regenera citele/dados/ a partir dos arquivos do IBGE na pasta acima (uso eventual):
+  #   docker compose --profile preparar run --rm preparar-dados
+  preparar-dados:
+    profiles: ["preparar"]
+    build: ./preparar_dados
+    volumes:
+      - ..:/entrada:ro
+      - ./dados:/saida
+    command:
+      - sh
+      - -c
+      - >-
+        python preparar_dados.py /entrada/malha_municipal/BR_Municipios_2022.shp /saida &&
+        python preparar_areas.py /entrada/bairros_capitais.gpkg /entrada/setores_capitais.gpkg /saida &&
+        python preparar_rotas.py /entrada/malha_municipal/BR_Municipios_2022.shp /saida
